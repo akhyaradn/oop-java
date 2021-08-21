@@ -13,7 +13,7 @@ import java.sql.*;
  */
 
 public class Mysql implements ConnectionInterface {
-    private final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DB_PATH = "jdbc:mysql://[::1]:3306/bike";
     private String userName;
     private String password;
@@ -24,8 +24,8 @@ public class Mysql implements ConnectionInterface {
         String userName, 
         String password
     ) {
-        userName = userName;
-        password = password;
+        this.userName = userName;
+        this.password = password;
     }
     
     public void connect() throws SQLException, Exception

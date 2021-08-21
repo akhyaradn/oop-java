@@ -5,6 +5,7 @@
  */
 package DBConnection;
 
+import java.sql.*;  
 /**
  *
  * @author akhyar
@@ -12,4 +13,6 @@ package DBConnection;
 public interface ConnectionInterface {
     public void connect() throws Exception;
     public void close() throws Exception;
+    public Statement getStatement();
+    public Connection getConnection();
 }

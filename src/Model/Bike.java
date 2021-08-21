@@ -10,6 +10,8 @@ package Model;
  * @author akhyar
  */
 public class Bike {
+    public static final String SPD_GUNUNG = "Sepeda Gunung";
+    public static final String SPD_LIPAT = "Sepeda Lipat";
     private String kodeSepeda;
     private String namaSepeda;
     private String jenisSepeda;
@@ -20,78 +22,78 @@ public class Bike {
            
     public Bike setKodeSepeda(String kodeSepeda)
     {
-        kodeSepeda = kodeSepeda;
+        this.kodeSepeda = kodeSepeda;
         return this;
         
     }
     
     public String getKodeSepeda()
     {
-        return kodeSepeda;
+        return this.kodeSepeda;
     }
     
     public Bike setNamaSepeda(String namaSepeda)
     {
-        namaSepeda = namaSepeda;
+        this.namaSepeda = namaSepeda;
         return this;
     }
     
     public String getNamaSepeda()
     {
-        return namaSepeda;
+        return this.namaSepeda;
     }
     
     public Bike setJenisSepeda(String jenisSepeda)
     {
-        jenisSepeda = jenisSepeda;
+        this.jenisSepeda = jenisSepeda;
         return this;
     }
     
     public String getJenisSepeda()
     {
-        return jenisSepeda;
+        return this.jenisSepeda;
     }
     public Bike setJumlahGigi(Integer jumlahGigi)
     {
-        jumlahGigi = jumlahGigi;
+        this.jumlahGigi = jumlahGigi;
         return this;
     }
     
     public Integer getJumlahGigi()
     {
-        return jumlahGigi;
+        return this.jumlahGigi;
     }
     
     public Bike setAturTinggi(Boolean aturTinggi)
     {
-        aturTinggi = aturTinggi;
+        this.aturTinggi = aturTinggi;
         return this;
     }
     
     public Boolean getAturTinggi()
     {
-        return aturTinggi;
+        return this.aturTinggi;
     }
     
     public Bike setLampu(Boolean lampu)
     {
-        lampu = lampu;
+        this.lampu = lampu;
         return this;
     }
     
     public Boolean getLampu()
     {
-        return lampu;
+        return this.lampu;
     }
     
     public Bike setStok(Integer stok)
     {
-        stok = stok;
+        this.stok = stok;
         return this;
     }
     
     public Integer getStok()
     {
-        return stok;
+        return this.stok;
     }
 }
