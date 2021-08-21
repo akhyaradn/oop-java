@@ -5,10 +5,32 @@
  */
 package Service;
 
+import Model.Bike;
+import java.util.ArrayList;
+
 /**
  *
  * @author akhyar
  */
 public class BikeService {
-    
+
+    public Bike formatBike(
+        String kodeSepeda,
+        String namaSepeda,
+        String jenisSepeda,
+        Integer jumlahGigi,
+        Boolean aturTinggi,
+        Boolean lampu,
+        Integer stok
+    ) {
+        return new Bike()
+            .setKodeSepeda(kodeSepeda)
+            .setNamaSepeda(namaSepeda)
+            .setJenisSepeda(jenisSepeda)
+            .setJumlahGigi(jumlahGigi)
+            .setAturTinggi(aturTinggi)
+            .setKodeSepeda(kodeSepeda)
+            .setLampu(lampu)
+            .setStok(stok);
+    }
 }
