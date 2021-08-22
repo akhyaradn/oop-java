@@ -5,11 +5,7 @@
  */
 package uas;
 
-import Repository.*;
-import DBConnection.*;
-import Service.*;
-import Model.*;
-import java.util.ArrayList;
+import GUI.*;
 /**
  *
  * @author akhyar
@@ -21,16 +17,7 @@ public class UAS {
      */
     public static void main(String[] args) {
         
-        BikeService bService = new BikeService();
-        System.out.println(bService.getLatestBikeId(Bike.SPD_LIPAT));
-//            Mysql dbc = new Mysql("root", "password");
-//            dbc.connect();
-//            BikeRepository br = new BikeRepository(dbc);
-//            ArrayList<Bike> data = br.getMultipleData("SELECT * FROM bike");
-//
-//            for(Bike bike : data) {
-//                System.out.println(bike.getNamaSepeda());
-//            }
+          new UI();
     }
     
 }

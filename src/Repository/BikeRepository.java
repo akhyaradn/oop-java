@@ -61,8 +61,51 @@ public class BikeRepository {
         return b;
     }
     
-    public void insertBike(Bike bike) throws Exception {
-        String query = "INSERT INTO bike VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void insertBike(Bike bike)
+    {
+        try {
+            String query = "INSERT INTO bike VALUES (?, ?, ?, ?, ?, ?, ?)";        
+            this.preparedStmt(bike, query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateBike(Bike bike, String where)
+    {
+        try {
+            String query = "UPDATE bike SET KodeSepeda = ?, "
+                + " NamaSepeda = ?, "
+                + " JenisSepeda = ?, "
+                + " JumlahGigi = ?, "
+                + " AturTinggi = ?, "
+                + " Lampu = ?, "
+                + " Stok= ? ";
+
+            query += where;
+
+            this.preparedStmt(bike, query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void deleteBike(String id) 
+    {
+        try {
+            String query = "DELETE FROM bike WHERE KodeSepeda = ?";
+            PreparedStatement ps = this.con.getConnection().prepareStatement(query);
+            ps.setString(1, id);
+
+            ps.executeUpdate();
+            this.con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void preparedStmt(Bike bike, String query) throws Exception
+    {
         PreparedStatement ps = this.con.getConnection().prepareStatement(query);
 
         ps.setString(1, bike.getKodeSepeda());
@@ -70,11 +113,26 @@ public class BikeRepository {
         ps.setString(3, bike.getJenisSepeda());
         ps.setInt(4, bike.getJumlahGigi());
         ps.setBoolean(5, bike.getAturTinggi());
-        ps.setBoolean(1, bike.getLampu());
-        ps.setInt(1, bike.getStok());
+        ps.setBoolean(6, bike.getLampu());
+        ps.setInt(7, bike.getStok());
 
         ps.executeUpdate();
         this.con.close();
+    }
+    
+    public String getLatestBikeId(String type)
+    {
+        try {
+            String query = "SELECT * FROM bike WHERE JenisSepeda = ";
+            query += "'" + type + "'";
+            query += " ORDER BY KodeSepeda DESC LIMIT 1";
+
+            Bike bike = this.getSingleData(query);
+            
+            return bike.getKodeSepeda();
+        } catch (Exception e) {
+            return "";
+        }
     }
     
     private Bike formatBike(
